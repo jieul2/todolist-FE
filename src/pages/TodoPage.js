@@ -8,11 +8,12 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 
-const TodoPage = () =>{
+const TodoPage = () => {
   const [todoList, setTodoList] = useState([]);
   const [todoValue, setTodoValue] = useState("");
   const getTasks = async () => {
     const response = await api.get("/tasks");
+
     console.log("response", response);
     setTodoList(response.data.data);
   };
@@ -96,6 +97,6 @@ const TodoPage = () =>{
       />
     </Container>
   );
-}
+};
 
 export default TodoPage;
