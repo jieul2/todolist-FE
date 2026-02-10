@@ -27,6 +27,14 @@ function App() {
     getUser();
   }, []);
 
+  useEffect(() => {
+    if (user && user.color) {
+      // 로그인 정보에서 color 가져와 body 그라데이션
+      document.body.style.background = `linear-gradient(135deg, ${user.color} 0%, #ffffff 100%)`;
+    } else {
+      document.body.style.background = `linear-gradient(135deg, #ffffff 0%, #ffffff 100%)`;
+    }
+  }, [user]);
   return (
     <Routes>
       <Route
@@ -39,7 +47,10 @@ function App() {
       />
       <Route path="/register" element={<RegisterPage />} />
 
-      <Route path="/login" element={<LoginPage user={user} setUser={setUser} />} />
+      <Route
+        path="/login"
+        element={<LoginPage user={user} setUser={setUser} />}
+      />
     </Routes>
   );
 }

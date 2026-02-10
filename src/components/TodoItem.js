@@ -2,41 +2,33 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 
 const TodoItem = ({ item, deleteTask, updateTask }) => {
-  const dynamicStyle = {
-    backgroundColor: item.isComplete ? "gray" : "white",
-  };
-
-  const textStyle = {
-    textDecoration: item.isComplete ? "line-through" : "none",
-  };
   return (
     <Row>
       <Col xs={12}>
-        <div className={`todo-item`} style={dynamicStyle}>
-          <div className="todo-content" style={textStyle}>
+        {/* 완료 여부에 따라 item-complete 클래스 추가 */}
+        <div className={`todo-item ${item.isComplete ? "item-complete" : ""}`}>
+          <div
+            className="todo-content"
+            style={{
+              textDecoration: item.isComplete ? "line-through" : "none",
+            }}
+          >
             {item.task}
           </div>
 
           <div>
             <button
-              style={dynamicStyle}
               className="button-delete"
-              onClick={() => {
-                console.log(item._id, "del");
-                deleteTask(item._id);
-              }}
+              onClick={() => deleteTask(item._id)}
             >
               삭제
             </button>
 
             <button
-              style={dynamicStyle}
-              className="button-delete"
-              onClick={() => {
-                updateTask(item._id);
-              }}
+              className="button-done"
+              onClick={() => updateTask(item._id)}
             >
-              {item.isComplete ? "안끝남" : "끝남"}
+              {item.isComplete ? "끝남" : "안끝남"}
             </button>
           </div>
         </div>

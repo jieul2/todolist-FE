@@ -1,91 +1,177 @@
+/* App.css */
+
 body {
-  color: lightblue !important ;
-  background-color: aliceblue;
+  background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  color: #334155 !important;
+  margin: 0;
+}
+
+.container,
+.login-container {
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px;
+  margin-top: 50px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.login-container {
+  max-width: 450px;
+  margin-top: 0;
+}
+
+.add-item-row {
+  margin-bottom: 30px;
+}
+
+.input-box {
+  padding: 12px 20px;
+  width: 100%;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  transition: all 0.3s;
+  background-color: white;
+}
+
+.input-box:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.button-add,
+.button-primary {
+  height: 50px;
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  background-color: #6366f1;
+  color: white;
+  font-weight: 600;
+  transition: all 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.button-add:hover,
+.button-primary:hover {
+  background-color: #4f46e5;
+  transform: translateY(-1px);
 }
 
 .todo-item {
-  border: 1px solid lightblue;
   background-color: white;
+  border-radius: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 15px 20px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  border: 1px solid #f1f5f9;
+  transition: transform 0.2s;
 }
+
+.todo-item:hover {
+  transform: scale(1.01);
+}
+
 .todo-content {
-  padding: 1em;
-}
-.add-item-row {
-  margin-top: 50px !important;
-  margin-bottom: 30px;
-}
-.input-box {
-  padding: 10px;
-  width: 100%;
-  border: 1px solid lightblue;
-}
-.input-box:focus {
-  outline: none;
-}
-button {
-  background-color: lightblue;
-  color: white;
-}
-.button-add {
-  height: 40px;
-  width: 100%;
-  border: none;
-  background-color: lightblue;
-  color: white;
-}
-.button-add:hover {
-  background-color: white;
-  color: lightblue;
-  border: 2px solid lightblue;
-}
-.button-delete {
-  background-color: white;
-  border: 2px solid lightblue;
-  color: lightblue;
-  margin: 10px;
-}
-.button-delete:hover {
-  background-color: lightblue;
-  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  flex: 1;
 }
 
+/* 완료된 상태 (회색 배경 및 흐리게 처리) */
 .item-complete {
-  background-color: gainsboro;
-  color: white;
+  background-color: #f1f5f9 !important;
+  border: 1px solid #cbd5e1;
+  opacity: 0.8;
 }
 
-.login-box {
-  border: 1px solid lightblue;
-  max-width: 600px;
-  width: 100%;
-  background-color: white;
-  padding: 20px;
-}
-.login-box label {
-  font-weight: 700;
+/* 아이템 내부 버튼들 */
+.button-delete,
+.button-done {
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  margin-left: 5px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  min-width: 75px; /* 글자 변경 시 버튼 크기 흔들림 방지 */
+  transition: opacity 0.2s;
+  cursor: pointer;
 }
 
+.button-delete {
+  background-color: #fee2e2;
+  color: #ef4444;
+}
+
+.button-done {
+  background-color: #e0e7ff;
+  color: #6366f1;
+}
+
+.button-delete:hover,
+.button-done:hover {
+  opacity: 0.7;
+}
+
+/* 6. 로그인/회원가입 페이지 전용 레이아웃 */
 .display-center {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
-.button-box {
+.login-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.login-header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1e293b;
+}
+
+.login-footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-top: 15px;
 }
 
-.button-primary {
-  background-color: lightblue;
-  color: #ffffff;
-  border: none;
+.link-text {
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: 600;
 }
+
+.link-text:hover {
+  text-decoration: underline;
+}
+
+/* 에러 메시지 스타일 */
 .red-error {
-  color: red;
+  background-color: #fee2e2;
+  color: #ef4444;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+  text-align: center;
+  border: 1px solid #fecaca;
 }
