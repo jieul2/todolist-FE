@@ -16,10 +16,8 @@ const TodoBoard = ({ todoList, deleteTask, updateTask }) => {
           />
         ))
       ) : (
-        <h2>There is no Item to show</h2>
+        <h2>할일이 없습니다!</h2>
       )}
-
-      {/* <TodoItem/> will be here once we get the todoList */}
     </div>
   );
 };
